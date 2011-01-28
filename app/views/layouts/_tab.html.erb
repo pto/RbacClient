@@ -1,0 +1,6 @@
+<% if request.parameters['controller'] =~ Regexp.new(tab, Regexp::IGNORECASE) or
+      request.parameters['action'] == tab -%>
+  <li class="current"><%= tab.capitalize %></li>
+<% else -%>
+  <li><%= link_to tab.capitalize, send(tab + '_path') %></li>
+<% end -%>

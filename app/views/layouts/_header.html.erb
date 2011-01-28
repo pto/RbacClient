@@ -1,0 +1,17 @@
+<div class="header">
+  <div class="app_banner">
+    <%= link_to "#{request.host} - Rbac Client", root_path %>
+    <% if not session[:user_id].blank? %>
+      <%= button_to "Logout #{session[:user_id]}", logout_path,
+                    :method => :get %>
+    <% end %>
+  </div>
+  <% if not session[:user_id].blank? %>
+    <div class="nav">
+      <ul>
+          <%= render :partial => 'layouts/tab', :object => 'roles' %>
+          <%= render :partial => 'layouts/tab', :object => 'things' %>
+      </ul>
+    </div>
+  <% end %>
+</div>

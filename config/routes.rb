@@ -3,16 +3,18 @@ RbacClient::Application.routes.draw do
   resources :things
 
   # Routes for assigning gci-rbac Gem authorities to roles
-  get '/roles' => 'GciRbac::Roles#index', 
-         :as => 'roles'
-  get "/roles/:role_name" => "GciRbac::Roles#show", 
-         :as => 'gci_rbac_role'
-  get "/roles/:role_name/edit" => "GciRbac::Roles#edit", 
-         :as => 'gci_rbac_edit_role'
-  put "/roles/:role_name" => "GciRbac::Roles#update",
-         :as => 'gci_rbac_update_role'
+  get '/roles' => 'GciRbac::Roles#index',
+      :as => 'roles'
+  get '/roles/:role_name' => 'GciRbac::Roles#show',
+      :as => 'role'
+  get '/roles/:role_name/edit' => 'GciRbac::Roles#edit',
+      :as => 'edit_role'
+  put '/roles/:role_name' => 'GciRbac::Roles#update',
+      :as => 'update_role' 
 
   root :to => "application#login"
+
+  get '/logout' => 'application#login', :as => 'logout'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -1,0 +1,277 @@
+/***** General *****/
+ 
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 13px; /* Base size for Firefox, Chrome, Safari */
+                   /* IE size is set in iebase.css */
+  font-family: verdana, arial, helvetica, sans-serif;
+}
+
+/***** App Banner *****/
+
+div.header div.app_banner {
+  font-size: 120%;
+  font-family: georgia, serif;
+  font-weight: bold;
+  padding: 0.5em 1em 0.5em 1em;
+  color: #fff;
+  background-color: #127; /* dark blue */
+}
+
+/* The app name is clickable, but don't use usual link colors */
+div.header div.app_banner a {
+  color: white;
+  text-decoration: none;
+}
+
+/* For button_to in the app banner */
+div.header div.app_banner form {
+  margin-top: -0.25em; /* makes button vertically centered */
+  float: right;
+}
+
+/* For button_to in the app banner */
+div.header div.app_banner form input {
+  font-size: 80%;
+}
+
+/***** Top Nav *****/
+
+/* Layout nav as a tab bar */
+div.header div.nav {
+  list-style: none;
+  margin: 1em 1em 0 1em;
+  padding: 0.5em 0 0.5em 0;
+}
+  
+div.header div.nav ul {
+  margin: 0;
+  padding: 0;
+}
+
+div.header div.nav li {
+  display: inline;
+  margin: 2px;
+  padding: 0.5em 1em 0.5em 1em;
+  color: white;
+  background-color: #aaa;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  -moz-border-radius-topleft: 5px;
+  -moz-border-radius-topright: 5px;
+  -webkit-border-top-left-radius: 5px;
+  -webkit-border-top-right-radius: 5px;
+  }
+  
+div.header div.nav li:hover {
+  background-color: #bbb;
+}
+  
+/* This is the tab for the current controller */
+div.header div.nav li.current {
+  background-color: #14b; /* blue */
+}
+  
+div.header div.nav li a {
+  color: white;
+  padding: 0.5em 0 0.5em 0;
+  text-decoration: none;
+  background-color: inherit;
+}
+
+div.header div.nav li a:hover {
+  background-color: #bbb;
+}
+
+/***** Notice *****/
+
+/* The notice is in application.html.erb, and only appears when it is
+   not blank. This is different from standard Rails scaffolds. */
+p#notice {
+  background: url(/images/info.png) no-repeat;
+  padding: 0.2em 0 0 28px;
+  height: 25px;
+  color: #27c; /* Matches info icon */
+  font-weight: bold;
+  }
+  
+/***** Error *****/
+
+/* Is this still used? */
+div.content h2.error {
+  background: url(../images/error.png) no-repeat;
+  padding: 0.2em 0 0 28px;
+  height: 25px;
+  color: red; /* Matches info icon */
+  font-weight: bold;
+  }
+
+/***** Content *****/
+  
+div.content {
+  border-top: 2px solid #14b; /* blue */
+  padding: 1em;
+}
+  
+/***** Headings *****/
+  
+div.content h1, h2, h3, h4, h5 {
+  font-size: 130%;
+  font-weight: bold;
+  color: #d80; /* Orange */
+  margin: 0 0 1em 0;
+  }
+  
+div.content h2 {
+  font-size: 110%;
+  }
+  
+div.content h3, h4, h5 {
+  font-size: 100%;
+  }
+
+/* Used to imitate a heading that should be set inline with text */
+span.highlight {
+  color: #d80;
+  font-weight: bold;
+}  
+
+/***** Tables *****/  
+  
+div.content table {
+  border-collapse: collapse;
+  border: 1px solid #bbb;
+  }
+  
+div.content th {
+  background-color: #127; /* dark blue */
+  font-weight: bold;
+  text-align: left;
+  color: white;
+  padding: 0.2em 0.5em 0.2em 0.5em;
+  border: 1px solid #ddd;
+  }
+  
+/* This only works on non-IE browsers */
+div.content tr:nth-child(odd) {
+  background-color: #f9f9f9;
+  }
+
+div.content tr:hover {
+  background-color: #fec; /* light orange */
+  }
+
+div.content td {
+  padding: 0.2em 0.5em 0.2em 0.5em;
+}
+
+/* Make tables less crowded by eliminating the underlines on links */
+div.content td a {
+  text-decoration: none;
+}
+  
+/***** Forms and Show *****/
+
+/* Let forms and button_to's fit up together */
+form {
+  display: inline;
+}
+
+div.content form div.field, div.show p {
+  margin-bottom: 1em;
+  }
+  
+/* Scaffolding puts in breaks, which we ignore */
+div.content form br {
+  display: none;
+  }
+
+/* But sometimes we don't want to ignore it */
+div.content form br.no_ignore {
+  display: block;
+}
+
+/* Labels line up, right justified */
+div.content form label, div.show b {
+  font-weight: bold;
+  display: inline-block;
+  width: 15em;
+  text-align: right;
+  padding-right: 1em;
+  }
+  
+div.content form input, div.content form textarea {
+  font-size: 100%;
+  }
+
+/* Let Cancel button follow the form on the same line */
+div.content div.actions,
+div.content div.actions div,
+div.content form.button_to div {
+  display: inline;
+}
+
+/* Make the main buttons a little bigger */
+div.content form div.actions input, div.content form.button_to input {
+  padding: 0.2em 0.5em;
+  font-size: 110%;
+}
+
+/***** Errors *****/  
+  
+/* Errors display as:
+ *   <div id="error_explanation">
+ *     <h2>1 error prohibited...</h2>
+ *     <ul>
+ *       <li>...can't be...</li>
+ *     </ul>
+ *   </div>
+ *
+ *   <div class="field">
+ *     <div class="field_with_errors><label>...</label></div>
+ *   <br>
+ *     <div class="field_with_errors"><input>...</input></div>
+ *   </div>
+ */      
+
+div#error_explanation {
+  color: #c00; /* Matches error icon */
+}
+
+div#error_explanation h2 {
+  margin: 0;
+  color: inherit;
+  padding: 2px 0 0 25px;
+  height: 25px;
+  background: url(/images/error.png) no-repeat;
+}
+
+div#error_explanation ul {
+  margin-top: 0;
+}
+
+/* Cleanup alignment of text with input */
+div.field_with_errors {
+  display: inline;
+  vertical-align: top;
+  padding-top: 0.3em;
+}
+
+div.field_with_errors label {
+  color: #c00;
+}
+  
+br+div.field_with_errors * {  /* Selects second div's contents */
+  outline: 2px solid red;
+}
+
+/***** Search *****/
+
+h3.search {
+  margin-bottom: 0;
+}
+
+ul.search {
+  margin-top: 0;
+}
