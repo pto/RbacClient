@@ -1,5 +1,9 @@
 RbacClient::Application.routes.draw do
 
+  root :to => 'home#index'
+
+  get 'home/index' => 'home#index', :as => 'home'
+
   resources :things
 
   # Routes for assigning gci-rbac Gem authorities to roles
@@ -11,10 +15,11 @@ RbacClient::Application.routes.draw do
       :as => 'edit_role'
   put '/roles/:role_name' => 'GciRbac::Roles#update',
       :as => 'update_role' 
+ 
 
-  root :to => "application#login"
 
-  get '/logout' => 'application#login', :as => 'logout'
+  match '/login' => 'GciRbac::Login#login', :as => 'login'
+  match '/logout' => 'GciRbac::Login#logout', :as => 'logout'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
