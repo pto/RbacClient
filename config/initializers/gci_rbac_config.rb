@@ -1,7 +1,8 @@
 module GciRbac
   APPLICATION_NAME = 'Rbac Client'
-#  AUTHORIZATION_SERVICE_URL = 'http://trunk.rbac.nmass.gci'
-  AUTHORIZATION_SERVICE_URL = 'http://localhost:3001'
+  AUTHORIZATION_SERVICE_URL = 'http://trunk.rbac.nmass.gci'
+  LDAP_HOST = 'ent-mocadbh02.us.ad.gannett.com'
+  LDAP_PORT = 389
 
   class Authority
     group 'Thing Authorities' do

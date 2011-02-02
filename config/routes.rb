@@ -2,7 +2,7 @@ RbacClient::Application.routes.draw do
 
   root :to => 'home#index'
 
-  get 'home/index' => 'home#index', :as => 'home'
+  match 'home/index' => 'home#index', :as => 'home'
 
   resources :things
 
